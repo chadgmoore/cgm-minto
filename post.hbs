@@ -31,12 +31,11 @@
             <hr class="title-hr">
             {{content}}
 
-            <!--
             <div class="comments">
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'forum-shortname'; // required: replace example with your forum shortname
+                    var disqus_shortname = 'wherethelightgathers'; // required: replace example with your forum shortname
 
                     /* * * DON'T EDIT BELOW THIS LINE * * */
                     (function() {
@@ -49,5 +48,27 @@
             </div><!-- /.comments -->
     </div><!-- /.row -->
 </div><!-- /.container -->
+        {{! Everything inside the #author tags pulls data from the author }}
+        {{#author}}
+            <section class="author-info">
+                <div class="row">
+                    <section class="post-author small-12 columns">
+                        {{#if image}}
+                            <img src="{{image}}" class="post-author-avatar" alt="{{name}}">
+                        {{/if}}
+                        {{#if name}}
+                            <span class="author-label">Author</span>
+                            <h1><a href="{{url}}" class="author-link-name">{{name}}</a></h1>
+                        {{/if}}
+                        {{#if website}}
+                            <p><a href="{{website}}" class="author-website">{{website}}</a></p>
+                        {{/if}}
+                        {{#if bio}}
+                            <p>{{bio}}</p>
+                        {{/if}}
+                    </section>
+                </div>
+            </section>
+        {{/author}}
 
 {{/post}}
